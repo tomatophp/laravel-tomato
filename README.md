@@ -303,6 +303,31 @@ public function destroy(\App\Models\User $model): RedirectResponse|JsonResponse
 }
 ```
 
+## Request With Media
+
+to make media handling work you must install `spatie/laravel-medialibrary` package and run the migration
+
+```bash
+composer require spatie/laravel-medialibrary
+php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
+php artisan migrate
+```
+and your model must use `HasMedia` trait
+
+```php
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+class User extends Model implements HasMedia
+{
+    use InteractsWithMedia;
+}
+```
+
+## Handel Alerts
+
+and we have handel Toaster for you if you are using Splade it will working automatically and if you have `yoeunes/toastr` package it will working fine too. or you can use fetch `toaster` variable from session to get the flash messages.
+
 ## Support
 
 you can join our discord server to get support [TomatoPHP](https://discord.gg/Xqmt35Uh)
