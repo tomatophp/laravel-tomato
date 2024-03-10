@@ -1,21 +1,20 @@
 <?php
 
-namespace Tomatophp\LaravelTomato;
+namespace TomatoPHP\LaravelTomato;
 
 use Illuminate\Support\ServiceProvider;
+use TomatoPHP\LaravelTomato\TomatoServices;
+
+include __DIR__.'/helpers.php';
 
 
 class LaravelTomatoServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        //Register Config file
-        $this->mergeConfigFrom(__DIR__.'/../config/laravel-tomato.php', 'laravel-tomato');
-
-        //Publish Config
-        $this->publishes([
-           __DIR__.'/../config/laravel-tomato.php' => config_path('laravel-tomato.php'),
-        ], 'laravel-tomato-config');
+        $this->app->bind('tomato',function(){
+            return new TomatoServices();
+        });
     }
 
     public function boot(): void
