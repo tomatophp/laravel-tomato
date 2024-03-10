@@ -7,11 +7,6 @@ Basic Laravel Helpers for requests and controllers build by TomatoPHP
 ```bash
 composer require tomatophp/laravel-tomato
 ```
-after install your package please run this command
-
-```bash
-php artisan laravel-tomato:install
-```
 
 ## Publish Assets
 
