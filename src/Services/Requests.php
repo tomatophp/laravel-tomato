@@ -66,7 +66,7 @@ class Requests implements RequestsInterface
 
         //Is API Request?
         $isAPIRequest = $this->checkAPIRequest();
-        if((!$isAPIRequest) && $api){
+        if($isAPIRequest && $api){
             $response = $query->paginate(10);
             if($resource){
                 $response = $resource::collection($response);
@@ -79,7 +79,7 @@ class Requests implements RequestsInterface
         }
 
         //Is Not API Request And API Not Active
-        elseif((!$isAPIRequest) && (!$api)){
+        elseif($isAPIRequest && (!$api)){
             abort(404);
         }
 
@@ -183,7 +183,7 @@ class Requests implements RequestsInterface
             $this->handelStoreMedia($collection, $request, $record);
         }
 
-        if($api && (!$isAPIRequest)){
+        if($api && $isAPIRequest){
             return Response::data(
                 data: $record,
                 message: $message
@@ -231,7 +231,7 @@ class Requests implements RequestsInterface
             $this->handelGetMedia($collection, $model);
         }
 
-        if($api  && (!$isAPIRequest)){
+        if($api  && $isAPIRequest){
             $response = $model;
             if($resource){
                 $response = $resource::make($response);
@@ -284,7 +284,7 @@ class Requests implements RequestsInterface
             $this->handelUpdateMedia($collection, $request, $model);
         }
 
-        if($api  && (!$isAPIRequest)){
+        if($api  && $isAPIRequest){
             return Response::data(
                 data: $model,
                 message: $message
@@ -321,7 +321,7 @@ class Requests implements RequestsInterface
 
         $model->delete();
 
-        if($api && (!$isAPIRequest)){
+        if($api && $isAPIRequest){
             return Response::data(
                 data: [],
                 message: $message
