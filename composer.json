@@ -1,0 +1,42 @@
+{
+    "name": "tomatophp/laravel-tomato",
+    "type": "library",
+    "description": "Basic Laravel Helpers for requests and controllers build by TomatoPHP",
+    "keywords": [
+        "php",
+        "laravel",
+        "helpers",
+        "requests",
+        "query",
+        "controllers",
+        "table",
+        "api"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tomatophp\\LaravelTomato\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tomatophp\\LaravelTomato\\LaravelTomatoServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Fady Mondy",
+            "email": "info@3x1.io"
+        }
+    ],
+    "require": {
+        "php": "^8.1|^8.2"
+    }
+}
