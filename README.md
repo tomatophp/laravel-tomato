@@ -80,7 +80,7 @@ return Tomato::request()->index(
 
 ### 🔁 Index Request
 
-this method returns view or JsonResponse based on the request type. and we get the request type by check if the route has `splade` middleware or not.
+this method returns view or JsonResponse based on the request type. and we get the request type by check if the route has `auth:sanctum` middleware or not.
 
 this method accept some arguments:
 
@@ -148,7 +148,7 @@ public function api(Request $request): JsonResponse
 
 ### 🔁 Get Request
 
-this method returns view or JsonResponse based on the request type. and we get the request type by check if the route has `splade` middleware or not.
+this method returns view or JsonResponse based on the request type. and we get the request type by check if the route has `auth:sanctum` middleware or not.
 
 this method accept some arguments:
 
@@ -188,7 +188,7 @@ public function show(\App\Models\User $model): View|JsonResponse
 
 ### 🔁 Store Request
 
-this method returns RedirectResponse or JsonResponse based on the request type. and we get the request type by check if the route has `splade` middleware or not.
+this method returns RedirectResponse or JsonResponse based on the request type. and we get the request type by check if the route has `auth:sanctum` middleware or not.
 
 this method accept some arguments:
 
@@ -233,7 +233,7 @@ public function store(Request $request): RedirectResponse|JsonResponse
 
 ### 🔁 Update Request
 
-this method returns RedirectResponse or JsonResponse based on the request type. and we get the request type by check if the route has `splade` middleware or not.
+this method returns RedirectResponse or JsonResponse based on the request type. and we get the request type by check if the route has `auth:sanctum` middleware or not.
 
 this method accept some arguments:
 
@@ -277,7 +277,7 @@ public function update(Request $request, \App\Models\User $model): RedirectRespo
 
 ### 🔁 Destroy Request
 
-this method returns RedirectResponse or JsonResponse based on the request type. and we get the request type by check if the route has `splade` middleware or not.
+this method returns RedirectResponse or JsonResponse based on the request type. and we get the request type by check if the route has `auth:sanctum` middleware or not.
 
 this method accept some arguments:
 
@@ -302,11 +302,6 @@ public function destroy(\App\Models\User $model): RedirectResponse|JsonResponse
     return $response->redirect;
 }
 ```
-
-
-
-
-
 
 ## Support
 
